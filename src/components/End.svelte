@@ -42,7 +42,7 @@
 
 <section
 	transition:fade
-	class="col-span-2 mx-auto grid w-fit grid-cols-2 items-center justify-center gap-4 rounded bg-slate-500 p-8"
+	class="mx-auto grid w-fit grid-cols-2 items-center justify-center gap-4 rounded bg-slate-500 p-8 md:col-span-2"
 >
 	<div class="col-span-2 w-full text-center">
 		<h2 class="mb-2 text-xs uppercase">Similarity</h2>

@@ -53,22 +53,21 @@
 
 <svelte:document {onkeydown} />
 
-<main class="grid grid-cols-2 items-center justify-center gap-x-20 gap-y-8">
-	<section class="flex flex-col items-end">
+<main class="grid w-full items-center justify-center gap-x-20 gap-y-8 md:grid-cols-2">
+	<section class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end">
 		<div class="flex flex-col gap-2">
 			{#each displayWords as word, i (i)}
 				<Word bind:this={wordbinds[i]} {word} {target} />
 			{/each}
 		</div>
 	</section>
-	<section class="flex flex-col items-start">
-		<div class="flex flex-col items-center gap-8 rounded bg-slate-300 p-8">
+	<section class="flex flex-col items-center md:items-start">
+		<div class="flex flex-row items-center gap-8 rounded bg-slate-300 p-2 md:flex-col md:p-8">
 			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
 				<h2 class="text-xs uppercase">Target Word</h2>
 				<span>{target}</span>
 			</div>
 			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-				<h2 class="text-xs uppercase">Target Pattern</h2>
 				<Pattern pattern={targetPattern} />
 			</div>
 		</div>

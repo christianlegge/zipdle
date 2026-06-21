@@ -3,7 +3,11 @@
 	import { colorize, type LetterColor } from '$lib/colorize';
 	import { Spring } from 'svelte/motion';
 
-	let { word, target }: { word: string; target: string } = $props();
+	let {
+		word,
+		target,
+		targetPattern
+	}: { word: string; target: string; targetPattern: LetterColor[] } = $props();
 
 	let offset = new Spring(0, {
 		stiffness: 0.5,
@@ -32,6 +36,6 @@
 
 <div class="flex flex-row gap-2" style={`translate: 0px ${offset.current}px`}>
 	{#each zipped as [letter, color], i (i)}
-		<Letter bind:this={letterbinds[i]} {letter} {color} />
+		<Letter bind:this={letterbinds[i]} {letter} {color} glow={color === targetPattern[i]} />
 	{/each}
 </div>

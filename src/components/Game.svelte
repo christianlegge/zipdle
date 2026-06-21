@@ -62,7 +62,7 @@
 	<section class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end">
 		<div class="flex flex-col gap-2">
 			{#each displayWords as word, i (i)}
-				<Word bind:this={wordbinds[i]} {word} {target} />
+				<Word bind:this={wordbinds[i]} {word} {target} targetPattern={targetPattern[i]} />
 			{/each}
 		</div>
 	</section>

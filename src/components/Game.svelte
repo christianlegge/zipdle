@@ -1,0 +1,79 @@
+<script lang="ts">
+	import Word from './Word.svelte';
+	import wordList from '$lib/wordlist';
+	import { colors, type LetterColor } from '$lib/colorize';
+	import Pattern from './Pattern.svelte';
+	import End from './End.svelte';
+
+	let { target, targetPattern }: { target: string; targetPattern: LetterColor[][] } = $props();
+
+	let words = $state<string[]>([]);
+	let intermediate = $state('');
+	let flipping = $state(false);
+
+	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
+
+	function onkeydown(event: KeyboardEvent) {
+		if (flipping) {
+			return;
+		}
+		if (words.length >= 6) {
+			return;
+		}
+		if (/^[A-Za-z]$/.test(event.key)) {
+			if (intermediate.length < 5) {
+				intermediate = `${intermediate}${event.key.toLowerCase()}`;
+			} else {
+				intermediate = `${intermediate.slice(0, 4)}${event.key.toLowerCase()}`;
+			}
+		} else if (event.key === 'Backspace') {
+			intermediate = intermediate.slice(0, -1);
+		} else if (event.key === 'Enter') {
+			if (wordList.includes(intermediate) && !words.includes(intermediate)) {
+				flipping = true;
+				wordbinds[words.length].flip().then(() => {
+					words = [...words, intermediate];
+					intermediate = '';
+					flipping = false;
+				});
+			} else {
+				wordbinds[words.length].error();
+			}
+		}
+	}
+
+	let displayWords = $derived(
+		[
+			...words.filter((w) => w.length > 0),
+			intermediate,
+			...(words.length < 5 ? Array(5 - words.length).fill('') : [])
+		].slice(0, 6)
+	);
+</script>
+
+<svelte:document {onkeydown} />
+
+<main class="grid grid-cols-2 items-center justify-center gap-x-20 gap-y-8">
+	<section class="flex flex-col items-end">
+		<div class="flex flex-col gap-2">
+			{#each displayWords as word, i (i)}
+				<Word bind:this={wordbinds[i]} {word} {target} />
+			{/each}
+		</div>
+	</section>
+	<section class="flex flex-col items-start">
+		<div class="flex flex-col items-center gap-8 rounded bg-slate-300 p-8">
+			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+				<h2 class="text-xs uppercase">Target Word</h2>
+				<span>{target}</span>
+			</div>
+			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+				<h2 class="text-xs uppercase">Target Pattern</h2>
+				<Pattern pattern={targetPattern} />
+			</div>
+		</div>
+	</section>
+	{#if words.length === 6}
+		<End {words} {target} pattern={targetPattern} />
+	{/if}
+</main>

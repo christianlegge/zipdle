@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Word from './Word.svelte';
 	import wordList from '$lib/wordlist';
-	import { colors, type LetterColor } from '$lib/colorize';
+	import { type LetterColor } from '$lib/colorize';
 	import Pattern from './Pattern.svelte';
 	import End from './End.svelte';
+	import Keyboard from './Keyboard.svelte';
 
 	let { target, targetPattern }: { target: string; targetPattern: LetterColor[][] } = $props();
 
@@ -14,21 +15,25 @@
 	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
 
 	function onkeydown(event: KeyboardEvent) {
+		processInput(event.key);
+	}
+
+	function processInput(key: string) {
 		if (flipping) {
 			return;
 		}
 		if (words.length >= 6) {
 			return;
 		}
-		if (/^[A-Za-z]$/.test(event.key)) {
+		if (/^[A-Za-z]$/.test(key)) {
 			if (intermediate.length < 5) {
-				intermediate = `${intermediate}${event.key.toLowerCase()}`;
+				intermediate = `${intermediate}${key.toLowerCase()}`;
 			} else {
-				intermediate = `${intermediate.slice(0, 4)}${event.key.toLowerCase()}`;
+				intermediate = `${intermediate.slice(0, 4)}${key.toLowerCase()}`;
 			}
-		} else if (event.key === 'Backspace') {
+		} else if (key === 'Backspace') {
 			intermediate = intermediate.slice(0, -1);
-		} else if (event.key === 'Enter') {
+		} else if (key === 'Enter') {
 			if (wordList.includes(intermediate) && !words.includes(intermediate)) {
 				flipping = true;
 				wordbinds[words.length].flip().then(() => {
@@ -74,5 +79,7 @@
 	</section>
 	{#if words.length === 6}
 		<End {words} {target} pattern={targetPattern} />
+	{:else}
+		<Keyboard {processInput} />
 	{/if}
 </main>

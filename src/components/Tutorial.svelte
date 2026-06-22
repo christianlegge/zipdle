@@ -30,11 +30,16 @@
 		</p>
 		<div class="flex flex-col items-center gap-2">
 			<span class="w-40 -translate-x-10 text-left text-sm"
-				>The first "O" is yellow because there is an O in the target word.</span
+				>The first O is yellow because there is an O in the target word.</span
 			>
 			<Word word="roomy" target="overt" targetPattern={[]} preflip />
-			<span class="w-44 -translate-x-6 text-right text-sm"
+			<span class="mb-6 w-44 -translate-x-6 text-right text-sm"
 				>But there's only one, and it's already accounted for — so the second one is grey.</span
+			>
+			<Word word="tenet" target="overt" targetPattern={[]} preflip />
+			<span class="max-w-80 text-left text-sm"
+				>This T is grey, even though it appears first and there's a T in the target word. But that T
+				was guessed in the right place, and the green square takes priority.</span
 			>
 		</div>
 		<h2>What else?</h2>

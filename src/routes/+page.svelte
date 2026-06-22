@@ -5,7 +5,16 @@
 	let target = targetList[Math.floor(Math.random() * targetList.length)];
 </script>
 
-<h1 class="my-8 w-full text-center text-5xl">zipdle</h1>
+<h1 class="my-4 flex w-full flex-row items-center justify-center gap-4 text-center text-5xl">
+	<img
+		src="zip.webp"
+		alt="zip"
+		height="80"
+		width="80"
+		style="animation: spin 2000s linear infinite"
+	/>
+	<span>zipdle</span>
+</h1>
 <Game
 	{target}
 	targetPattern={[
@@ -17,3 +26,15 @@
 		['black', 'black', 'yellow', 'yellow', 'yellow']
 	]}
 />
+
+<style>
+	@keyframes -global-spin {
+		from {
+			transform: rotate(0);
+		}
+
+		to {
+			transform: rotate(360deg);
+		}
+	}
+</style>

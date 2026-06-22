@@ -8,7 +8,7 @@
 		target,
 		targetPattern,
 		preflip = false
-	}: { word: string; target: string; targetPattern: LetterColor[]; preflip: boolean } = $props();
+	}: { word: string; target: string; targetPattern: LetterColor[]; preflip?: boolean } = $props();
 
 	let offset = new Spring(0, {
 		stiffness: 0.5,
@@ -35,7 +35,7 @@
 	}
 </script>
 
-<div class="flex flex-row gap-2" style={`translate: 0px ${offset.current}px`}>
+<div class="flex flex-row md:gap-2" style={`translate: 0px ${offset.current}px`}>
 	{#each zipped as [letter, color], i (i)}
 		<Letter
 			bind:this={letterbinds[i]}

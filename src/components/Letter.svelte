@@ -30,7 +30,7 @@
 </script>
 
 <div
-	class="my-auto flex h-12 w-12 items-center justify-center border-2 border-black text-center align-middle text-4xl uppercase transition {flipped &&
+	class="my-auto flex h-10 w-10 items-center justify-center border-2 border-black text-center align-middle text-4xl uppercase transition md:h-12 md:w-12 {flipped &&
 	glow
 		? 'glow ' + color
 		: ''}"

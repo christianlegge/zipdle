@@ -1,6 +1,19 @@
 import { colorize, type LetterColor } from './colorize';
 import targetList from './targetList';
-import wordList from './wordlist';
+
+function shuffle(array: unknown[]) {
+	let currentIndex = array.length;
+
+	// While there remain elements to shuffle...
+	while (currentIndex != 0) {
+		// Pick a remaining element...
+		const randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex--;
+
+		// And swap it with the current element.
+		[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+	}
+}
 
 function arraysEqual<T>(a: T[], b: T[]) {
 	if (a === b) return true;
@@ -19,9 +32,9 @@ function arraysEqual<T>(a: T[], b: T[]) {
 }
 
 function findTargetWord(pattern: LetterColor[][]) {
-	for (let i = 0; i < 50; i++) {
+	shuffle(targetList);
+	for (const target of targetList) {
 		const words: string[] = [];
-		const target = targetList[Math.floor(Math.random() * targetList.length)];
 		console.log('trying', target);
 
 		let rowSuccess = true;

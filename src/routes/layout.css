@@ -2,6 +2,10 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+html {
+	@apply min-h-screen;
+}
+
 body {
-	@apply min-h-screen bg-linear-to-tr from-slate-900 to-slate-700 pb-12 text-white;
+	@apply bg-linear-to-tr from-slate-900 to-slate-700 pb-12 text-white;
 }

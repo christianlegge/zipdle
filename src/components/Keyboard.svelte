@@ -8,7 +8,7 @@
 	let { processInput }: { processInput: (key: string) => void } = $props();
 </script>
 
-<section class="flex h-24 w-full flex-col items-center gap-1 md:col-span-2">
+<section class="flex w-full flex-col items-center gap-1 md:col-span-2">
 	{#each buttons as row, i (i)}
 		<div class="flex h-full flex-row gap-1">
 			{#each row as button (button)}

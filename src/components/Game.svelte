@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Word from './Word.svelte';
+	import { fade } from 'svelte/transition';
 	import wordList from '$lib/wordlist';
 	import { type LetterColor } from '$lib/colorize';
 	import Pattern from './Pattern.svelte';
@@ -74,28 +75,26 @@
 
 <svelte:document {onkeydown} {onkeyup} />
 
-<main class="grid w-full items-center justify-center gap-x-20 gap-y-8 md:grid-cols-2">
-	<section class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end">
-		<div class="flex flex-col gap-2">
-			{#each displayWords as word, i (i)}
-				<Word bind:this={wordbinds[i]} {word} {target} targetPattern={targetPattern[i]} />
-			{/each}
+<section transition:fade class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end">
+	<div class="flex flex-col gap-2">
+		{#each displayWords as word, i (i)}
+			<Word bind:this={wordbinds[i]} {word} {target} targetPattern={targetPattern[i]} />
+		{/each}
+	</div>
+</section>
+<section transition:fade class="flex flex-col items-center md:items-start">
+	<div class="flex flex-row items-center gap-8 rounded bg-slate-300 p-2 md:flex-col md:p-8">
+		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+			<h2 class="text-xs uppercase">Target Word</h2>
+			<span>{target}</span>
 		</div>
-	</section>
-	<section class="flex flex-col items-center md:items-start">
-		<div class="flex flex-row items-center gap-8 rounded bg-slate-300 p-2 md:flex-col md:p-8">
-			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-				<h2 class="text-xs uppercase">Target Word</h2>
-				<span>{target}</span>
-			</div>
-			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-				<Pattern pattern={targetPattern} />
-			</div>
+		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+			<Pattern pattern={targetPattern} />
 		</div>
-	</section>
-	{#if words.length === 6}
-		<End {words} {target} pattern={targetPattern} />
-	{:else}
-		<Keyboard {processInput} />
-	{/if}
-</main>
+	</div>
+</section>
+{#if words.length === 6}
+	<End {words} {target} pattern={targetPattern} />
+{:else}
+	<Keyboard {processInput} />
+{/if}

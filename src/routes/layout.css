@@ -50,7 +50,7 @@ html {
 }
 
 body {
-	@apply bg-linear-to-tr from-slate-900 to-slate-700 pb-12 text-white;
+	@apply bg-linear-to-tr from-slate-900 to-slate-700 bg-fixed bg-no-repeat pb-12 text-white;
 }
 
 h1 {

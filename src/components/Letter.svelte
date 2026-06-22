@@ -1,10 +1,15 @@
 <script lang="ts">
 	import { colors, type LetterColor } from '$lib/colorize';
 
-	let { letter, color, glow }: { letter: string; color: LetterColor; glow: boolean } = $props();
+	let {
+		letter,
+		color,
+		glow,
+		preflip
+	}: { letter: string; color: LetterColor; glow: boolean; preflip: boolean } = $props();
 	let scale = $state(1);
 	let scaleX = $state(1);
-	let flipped = $state(false);
+	let flipped = $state(preflip);
 	const duration = 300;
 
 	export async function flip() {

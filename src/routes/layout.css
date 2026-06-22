@@ -3,5 +3,5 @@
 @plugin '@tailwindcss/typography';
 
 body {
-	@apply bg-slate-900 text-white;
+	@apply min-h-screen bg-linear-to-tr from-slate-900 to-slate-700 pb-12 text-white;
 }

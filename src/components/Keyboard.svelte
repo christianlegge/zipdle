@@ -13,7 +13,7 @@
 		<div class="flex h-full flex-row gap-1">
 			{#each row as button (button)}
 				<button
-					class="w-8 cursor-pointer rounded bg-slate-300 p-2 text-slate-900"
+					class="w-8 cursor-pointer rounded border-r-2 border-b-4 border-slate-600 bg-radial-[at_50%_15%] from-slate-100 to-slate-500 bg-top p-2 font-bold text-slate-900"
 					style:width={button.length > 1 ? '60px' : ''}
 					onclick={() => processInput(button)}>{button === 'Backspace' ? '<<' : button}</button
 				>
@@ -21,3 +21,11 @@
 		</div>
 	{/each}
 </section>
+
+<style lang="postcss">
+	@reference "tailwindcss";
+
+	button:active {
+		@apply border-0 bg-radial-[at_50%_50%] from-slate-400 to-slate-600;
+	}
+</style>

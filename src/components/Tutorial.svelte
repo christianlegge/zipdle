@@ -51,6 +51,8 @@
 				>You can find me here if you want.</a
 			> The idea was inspired by my friend who was weirdly good at doing this.
 		</p>
+		<h2>Was this vibe coded?</h2>
+		<p>No.</p>
 		<button class="mx-auto block cursor-pointer rounded bg-slate-300 p-2 text-black" onclick={close}
 			>Let's do it</button
 		>
@@ -62,6 +64,6 @@
 	@reference "tailwindcss";
 
 	h2 {
-		@apply w-full text-center text-lg uppercase;
+		@apply w-full text-center text-lg tracking-wide uppercase;
 	}
 </style>

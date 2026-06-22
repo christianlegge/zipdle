@@ -15,7 +15,23 @@
 	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
 
 	function onkeydown(event: KeyboardEvent) {
-		processInput(event.key);
+		// processInput(event.key);
+		const el = document.getElementById(
+			event.key.length === 1 ? event.key.toUpperCase() : event.key
+		);
+		if (el) {
+			el.click();
+			el.classList.add('active');
+		}
+	}
+
+	function onkeyup(event: KeyboardEvent) {
+		const el = document.getElementById(
+			event.key.length === 1 ? event.key.toUpperCase() : event.key
+		);
+		if (el) {
+			el.classList.remove('active');
+		}
 	}
 
 	function processInput(key: string) {
@@ -56,7 +72,7 @@
 	);
 </script>
 
-<svelte:document {onkeydown} />
+<svelte:document {onkeydown} {onkeyup} />
 
 <main class="grid w-full items-center justify-center gap-x-20 gap-y-8 md:grid-cols-2">
 	<section class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end">

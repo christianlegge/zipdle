@@ -75,26 +75,29 @@
 
 <svelte:document {onkeydown} {onkeyup} />
 
-<section transition:fade class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end">
-	<div class="flex flex-col md:gap-2">
-		{#each displayWords as word, i (i)}
-			<Word bind:this={wordbinds[i]} {word} {target} targetPattern={targetPattern[i]} />
-		{/each}
-	</div>
-</section>
-<section transition:fade class="flex flex-col items-center md:items-start">
-	<div class="flex flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8">
-		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-			<h2 class="text-xs uppercase">Target Word</h2>
-			<span>{target}</span>
-		</div>
-		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-			<Pattern pattern={targetPattern} />
-		</div>
-	</div>
-</section>
 {#if words.length === 6}
 	<End {words} {target} pattern={targetPattern} />
 {:else}
+	<section
+		transition:fade
+		class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end"
+	>
+		<div class="flex flex-col md:gap-2">
+			{#each displayWords as word, i (i)}
+				<Word bind:this={wordbinds[i]} {word} {target} targetPattern={targetPattern[i]} />
+			{/each}
+		</div>
+	</section>
+	<section transition:fade class="flex flex-col items-center md:items-start">
+		<div class="flex flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8">
+			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+				<h2 class="text-xs uppercase">Target Word</h2>
+				<span>{target}</span>
+			</div>
+			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+				<Pattern pattern={targetPattern} />
+			</div>
+		</div>
+	</section>
 	<Keyboard {processInput} />
 {/if}

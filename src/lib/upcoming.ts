@@ -4,6 +4,17 @@ import { arraysEqual } from './findTargetWord';
 const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 	{
 		pattern: [
+			['green', 'yellow', 'black', 'black', 'black'],
+			['yellow', 'green', 'yellow', 'black', 'black'],
+			['black', 'yellow', 'green', 'green', 'black'],
+			['black', 'green', 'green', 'yellow', 'black'],
+			['black', 'black', 'yellow', 'green', 'yellow'],
+			['black', 'black', 'black', 'yellow', 'green']
+		],
+		target: 'media'
+	},
+	{
+		pattern: [
 			['green', 'green', 'green', 'black', 'black'],
 			['black', 'black', 'yellow', 'yellow', 'yellow'],
 			['green', 'green', 'green', 'black', 'black'],
@@ -34,17 +45,6 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 			['yellow', 'yellow', 'yellow', 'yellow', 'yellow']
 		],
 		target: 'spear'
-	},
-	{
-		pattern: [
-			['green', 'yellow', 'black', 'black', 'black'],
-			['yellow', 'green', 'yellow', 'black', 'black'],
-			['black', 'yellow', 'green', 'green', 'black'],
-			['black', 'green', 'green', 'yellow', 'black'],
-			['black', 'black', 'yellow', 'green', 'yellow'],
-			['black', 'black', 'black', 'yellow', 'green']
-		],
-		target: 'media'
 	},
 	{
 		pattern: [

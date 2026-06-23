@@ -4,6 +4,7 @@
 	import wordList from '$lib/wordlist';
 	import { type LetterColor } from '$lib/colorize';
 	import Pattern from './Pattern.svelte';
+	import { SvelteDate } from 'svelte/reactivity';
 	import End from './End.svelte';
 	import Keyboard from './Keyboard.svelte';
 
@@ -19,6 +20,8 @@
 	let endBoardShown = $state(false);
 
 	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
+
+	const now = new SvelteDate();
 
 	function onkeydown(event: KeyboardEvent) {
 		// processInput(event.key);
@@ -112,9 +115,10 @@
 			? 'hidden'
 			: 'flex'} flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8"
 	>
-		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-			<h2 class="text-xs uppercase">Target Word</h2>
-			<span>{target}</span>
+		<div class="flex flex-col items-center gap-2 rounded bg-slate-500 p-4">
+			<span class="text-xs uppercase">{now.toDateString()}</span>
+			<h2 class="mt-2 text-sm">Target Word</h2>
+			<span class="text-lg">{target}</span>
 		</div>
 		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
 			<Pattern pattern={targetPattern} />

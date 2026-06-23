@@ -60,6 +60,13 @@
 				>You can find me here if you want.</a
 			> The idea was inspired by my friend who was weirdly good at doing this.
 		</p>
+		<p>
+			<a
+				href="https://github.com/christianlegge/zipdle"
+				class="cursor-pointer font-semibold text-fuchsia-100 underline"
+				>The source code for this project can be found here.</a
+			>
+		</p>
 		<h2>Was this vibe coded?</h2>
 		<p>No.</p>
 		<button class="mx-auto block cursor-pointer rounded bg-slate-300 p-2 text-black" onclick={close}

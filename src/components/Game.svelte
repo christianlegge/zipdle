@@ -12,6 +12,7 @@
 	let words = $state<string[]>([]);
 	let intermediate = $state('');
 	let flipping = $state(false);
+	let endBoardShown = $state(false);
 
 	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
 
@@ -76,11 +77,20 @@
 <svelte:document {onkeydown} {onkeyup} />
 
 {#if words.length === 6}
-	<End {words} {target} pattern={targetPattern} />
-{:else}
+	<End
+		{words}
+		{target}
+		pattern={targetPattern}
+		boardShown={endBoardShown}
+		toggleBoard={() => (endBoardShown = !endBoardShown)}
+	/>
+{/if}
+{#if words.length !== 6 || endBoardShown}
 	<section
 		transition:fade
-		class="row-start-2 flex flex-col items-center md:row-start-1 md:items-end"
+		class="{words.length === 6 && endBoardShown
+			? 'col-span-2 mx-auto'
+			: ''} row-start-2 flex flex-col items-center md:row-start-1 md:items-end"
 	>
 		<div class="flex flex-col md:gap-2">
 			{#each displayWords as word, i (i)}
@@ -88,6 +98,8 @@
 			{/each}
 		</div>
 	</section>
+{/if}
+{#if words.length !== 6}
 	<section transition:fade class="flex flex-col items-center md:items-start">
 		<div class="flex flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8">
 			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">

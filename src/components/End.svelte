@@ -1,10 +1,21 @@
 <script lang="ts">
 	import { colorize, type LetterColor } from '$lib/colorize';
-	import { fade } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
 	import Pattern from './Pattern.svelte';
 
-	let { words, target, pattern }: { words: string[]; target: string; pattern: LetterColor[][] } =
-		$props();
+	let {
+		words,
+		target,
+		pattern,
+		toggleBoard,
+		boardShown
+	}: {
+		words: string[];
+		target: string;
+		pattern: LetterColor[][];
+		toggleBoard: () => void;
+		boardShown: boolean;
+	} = $props();
 
 	const actualPattern = $derived(words.map((w) => colorize(w, target)));
 
@@ -55,9 +66,15 @@
 </script>
 
 <section
-	transition:fade
-	class="absolute inset-0 mx-auto grid h-fit w-fit grid-cols-2 items-center justify-center gap-4 rounded bg-slate-500 p-8 md:col-span-2"
+	transition:slide
+	class="{boardShown
+		? 'relative'
+		: 'absolute'} inset-0 mx-auto grid h-fit w-fit grid-cols-2 items-center justify-center gap-4 rounded bg-slate-500 px-8 pt-2 pb-8 md:col-span-2"
 >
+	<button
+		class="col-span-2 inline-block w-full cursor-pointer rounded bg-slate-600 py-1 text-center text-xs uppercase"
+		onclick={toggleBoard}>{boardShown ? '^ Hide Board ^' : 'V View Board V'}</button
+	>
 	<div class="col-span-2 w-full text-center">
 		<h2 class="mb-2 text-xs uppercase">Similarity</h2>
 		{(100 * similarity(actualPattern, pattern)).toFixed(2)}%
@@ -74,7 +91,7 @@
 		<h2 class="text-xs uppercase">Your Result</h2>
 		<Pattern pattern={actualPattern} target={pattern} />
 	</div>
-	<div class="col-span-2 w-full text-center">
+	<div class="col-span-2 mt-2 w-full text-center">
 		<button
 			class="{copied ? 'text-slate-500' : 'cursor-pointer text-slate-900'} rounded bg-slate-100 p-2"
 			onclick={() => copy(actualPattern, pattern)}>{copied ? 'Copied!' : 'Share'}</button

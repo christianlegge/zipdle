@@ -9,7 +9,7 @@
 
 	let manualTutorial = $state(false);
 
-	const START_DATE = new SvelteDate(2026, 5, 22);
+	const START_DATE = new SvelteDate(2026, 5, 23);
 
 	const now = new SvelteDate();
 

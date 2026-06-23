@@ -42,9 +42,12 @@
 				manualTutorial = false;
 			}}
 		/>
-	{:else}
-		<Game target={upcoming[days].target} targetPattern={upcoming[days].pattern} />
 	{/if}
+	<Game
+		target={upcoming[days].target}
+		targetPattern={upcoming[days].pattern}
+		tutorialShown={!closedTutorial.current || manualTutorial}
+	/>
 </main>
 
 <style>

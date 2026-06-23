@@ -7,7 +7,11 @@
 	import End from './End.svelte';
 	import Keyboard from './Keyboard.svelte';
 
-	let { target, targetPattern }: { target: string; targetPattern: LetterColor[][] } = $props();
+	let {
+		target,
+		targetPattern,
+		tutorialShown
+	}: { target: string; targetPattern: LetterColor[][]; tutorialShown: boolean } = $props();
 
 	let words = $state<string[]>([]);
 	let intermediate = $state('');
@@ -76,7 +80,7 @@
 
 <svelte:document {onkeydown} {onkeyup} />
 
-{#if words.length === 6}
+{#if words.length === 6 && !tutorialShown}
 	<End
 		{words}
 		{target}
@@ -85,31 +89,38 @@
 		toggleBoard={() => (endBoardShown = !endBoardShown)}
 	/>
 {/if}
-{#if words.length !== 6 || endBoardShown}
-	<section
-		transition:fade
-		class="{words.length === 6 && endBoardShown
-			? 'col-span-2 mx-auto'
-			: ''} row-start-2 flex flex-col items-center md:row-start-1 md:items-end"
+<section
+	transition:fade
+	class="{words.length === 6 && endBoardShown ? 'col-span-2 mx-auto' : ''} {tutorialShown ||
+	(words.length === 6 && !endBoardShown)
+		? 'hidden'
+		: 'flex'} row-start-2 flex-col items-center md:row-start-1 md:items-end"
+>
+	<div class="flex flex-col md:gap-2">
+		{#each displayWords as word, i (i)}
+			<Word bind:this={wordbinds[i]} {word} {target} targetPattern={targetPattern[i]} />
+		{/each}
+	</div>
+</section>
+<section
+	class="{tutorialShown || words.length === 6
+		? 'hidden'
+		: 'flex'} flex-col items-center md:items-start"
+>
+	<div
+		class="{tutorialShown
+			? 'hidden'
+			: 'flex'} flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8"
 	>
-		<div class="flex flex-col md:gap-2">
-			{#each displayWords as word, i (i)}
-				<Word bind:this={wordbinds[i]} {word} {target} targetPattern={targetPattern[i]} />
-			{/each}
+		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+			<h2 class="text-xs uppercase">Target Word</h2>
+			<span>{target}</span>
 		</div>
-	</section>
-{/if}
+		<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
+			<Pattern pattern={targetPattern} />
+		</div>
+	</div>
+</section>
 {#if words.length !== 6}
-	<section transition:fade class="flex flex-col items-center md:items-start">
-		<div class="flex flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8">
-			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-				<h2 class="text-xs uppercase">Target Word</h2>
-				<span>{target}</span>
-			</div>
-			<div class="flex flex-col items-center gap-4 rounded bg-slate-500 p-4">
-				<Pattern pattern={targetPattern} />
-			</div>
-		</div>
-	</section>
 	<Keyboard {processInput} />
 {/if}

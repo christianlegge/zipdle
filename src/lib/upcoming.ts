@@ -1,4 +1,5 @@
 import type { LetterColor } from './colorize';
+import { arraysEqual } from './findTargetWord';
 
 const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 	{
@@ -212,17 +213,6 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 	},
 	{
 		pattern: [
-			['yellow', 'green', 'black', 'black', 'black'],
-			['black', 'yellow', 'green', 'black', 'black'],
-			['black', 'black', 'yellow', 'green', 'black'],
-			['black', 'black', 'yellow', 'green', 'black'],
-			['black', 'yellow', 'green', 'black', 'black'],
-			['yellow', 'green', 'black', 'black', 'black']
-		],
-		target: 'cider'
-	},
-	{
-		pattern: [
 			['yellow', 'green', 'yellow', 'black', 'black'],
 			['black', 'yellow', 'green', 'yellow', 'black'],
 			['black', 'black', 'yellow', 'green', 'yellow'],
@@ -231,8 +221,118 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 			['yellow', 'green', 'yellow', 'black', 'black']
 		],
 		target: 'board'
+	},
+	{
+		pattern: [
+			['yellow', 'black', 'black', 'black', 'yellow'],
+			['yellow', 'green', 'yellow', 'green', 'yellow'],
+			['black', 'green', 'black', 'green', 'black'],
+			['black', 'yellow', 'black', 'yellow', 'black'],
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['black', 'yellow', 'black', 'yellow', 'black']
+		],
+		target: 'roost'
+	},
+	{
+		pattern: [
+			['yellow', 'yellow', 'black', 'yellow', 'yellow'],
+			['black', 'green', 'green', 'green', 'black'],
+			['black', 'green', 'yellow', 'green', 'black'],
+			['black', 'green', 'yellow', 'green', 'black'],
+			['black', 'green', 'green', 'green', 'black'],
+			['yellow', 'yellow', 'black', 'yellow', 'yellow']
+		],
+		target: 'sedan'
+	},
+	{
+		pattern: [
+			['green', 'green', 'black', 'green', 'green'],
+			['black', 'yellow', 'yellow', 'yellow', 'black'],
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['black', 'yellow', 'yellow', 'yellow', 'black'],
+			['green', 'green', 'black', 'green', 'green']
+		],
+		target: 'blond'
+	},
+	{
+		pattern: [
+			['black', 'black', 'yellow', 'black', 'black'],
+			['black', 'yellow', 'yellow', 'yellow', 'black'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['black', 'green', 'green', 'green', 'black'],
+			['black', 'green', 'yellow', 'green', 'black'],
+			['black', 'green', 'yellow', 'green', 'black']
+		],
+		target: 'sonar'
+	},
+	{
+		pattern: [
+			['black', 'yellow', 'yellow', 'black', 'green'],
+			['black', 'yellow', 'black', 'yellow', 'green'],
+			['black', 'yellow', 'green', 'green', 'black'],
+			['black', 'green', 'green', 'yellow', 'black'],
+			['green', 'yellow', 'black', 'yellow', 'black'],
+			['green', 'black', 'yellow', 'yellow', 'black']
+		],
+		target: 'chain'
+	},
+	{
+		pattern: [
+			['black', 'black', 'green', 'black', 'black'],
+			['green', 'black', 'yellow', 'black', 'green'],
+			['black', 'green', 'yellow', 'green', 'black'],
+			['black', 'green', 'yellow', 'green', 'black'],
+			['green', 'black', 'yellow', 'black', 'green'],
+			['black', 'black', 'green', 'black', 'black']
+		],
+		target: 'tenet'
+	},
+	{
+		pattern: [
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['black', 'green', 'black', 'green', 'black'],
+			['black', 'black', 'green', 'black', 'black'],
+			['black', 'black', 'yellow', 'black', 'black'],
+			['black', 'yellow', 'black', 'yellow', 'black'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow']
+		],
+		target: 'voter'
+	},
+	{
+		pattern: [
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['green', 'black', 'black', 'black', 'black'],
+			['green', 'green', 'black', 'black', 'black'],
+			['green', 'green', 'green', 'black', 'black'],
+			['green', 'green', 'green', 'green', 'black'],
+			['green', 'green', 'green', 'green', 'green']
+		],
+		target: 'canoe'
+	},
+	{
+		pattern: [
+			['black', 'green', 'green', 'green', 'black'],
+			['green', 'black', 'green', 'black', 'green'],
+			['black', 'green', 'green', 'green', 'black'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['black', 'yellow', 'yellow', 'yellow', 'black'],
+			['black', 'yellow', 'black', 'yellow', 'black']
+		],
+		target: 'route'
 	}
 ];
 
-export default upcoming;
+const deduped: typeof upcoming = [];
 
+for (const { pattern, target } of upcoming) {
+	if (!deduped.find((x) => x.target === target && arraysEqual(x.pattern, pattern))) {
+		deduped.push({ pattern, target });
+	}
+}
+
+if (deduped.length !== upcoming.length) {
+	console.log(JSON.stringify(deduped));
+}
+
+export default deduped;

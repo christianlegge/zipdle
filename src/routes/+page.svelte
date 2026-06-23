@@ -28,7 +28,7 @@
 	<span class="relative flex flex-row items-center"
 		>zipdle
 		<span
-			class="absolute -right-14 rounded bg-slate-900 p-1 text-xs uppercase"
+			class="absolute -right-14 rounded bg-slate-900 p-1 text-xs font-medium tracking-wider uppercase"
 			style="font-family:Manrope Variable">Beta</span
 		>
 	</span>

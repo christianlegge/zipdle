@@ -17,7 +17,7 @@
 </script>
 
 <h1
-	class="my-4 flex w-full -translate-x-2 flex-row items-center justify-center gap-4 text-center text-2xl md:text-5xl"
+	class="relative my-4 flex w-full -translate-x-2 flex-row items-center justify-center gap-4 text-center text-2xl md:text-5xl"
 >
 	<img
 		src="zip.webp"
@@ -25,7 +25,13 @@
 		class="h-10 md:h-20"
 		style="animation: spin 2000s linear infinite"
 	/>
-	<span>zipdle</span>
+	<span class="relative flex flex-row items-center"
+		>zipdle
+		<span
+			class="absolute -right-14 rounded bg-slate-900 p-1 text-xs uppercase"
+			style="font-family:Manrope Variable">Beta</span
+		>
+	</span>
 </h1>
 <button
 	onclick={() => (manualTutorial = !manualTutorial)}

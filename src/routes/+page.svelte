@@ -1,14 +1,19 @@
 <script lang="ts">
 	import Game from '../components/Game.svelte';
-	import targetList from '$lib/targetList';
 	import Tutorial from '../components/Tutorial.svelte';
 	import { PersistedState } from 'runed';
-
-	let target = targetList[Math.floor(Math.random() * targetList.length)];
+	import upcoming from '$lib/upcoming';
+	import { SvelteDate } from 'svelte/reactivity';
 
 	let closedTutorial = new PersistedState('visited', false);
 
 	let manualTutorial = $state(false);
+
+	const START_DATE = new SvelteDate(2026, 5, 22);
+
+	const now = new SvelteDate();
+
+	const days = Math.floor((now.getTime() - START_DATE.getTime()) / (24 * 60 * 60 * 1000));
 </script>
 
 <h1
@@ -38,17 +43,7 @@
 			}}
 		/>
 	{:else}
-		<Game
-			{target}
-			targetPattern={[
-				['green', 'green', 'green', 'black', 'black'],
-				['black', 'black', 'yellow', 'yellow', 'yellow'],
-				['green', 'green', 'green', 'black', 'black'],
-				['black', 'black', 'yellow', 'yellow', 'yellow'],
-				['green', 'green', 'green', 'black', 'black'],
-				['black', 'black', 'yellow', 'yellow', 'yellow']
-			]}
-		/>
+		<Game target={upcoming[days].target} targetPattern={upcoming[days].pattern} />
 	{/if}
 </main>
 

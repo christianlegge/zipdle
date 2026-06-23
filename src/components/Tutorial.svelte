@@ -18,7 +18,7 @@
 		<h2>How?</h2>
 		<p>
 			You'll see a target word and a pattern next to the board. Your goal is to draw the pattern as
-			close as you can.
+			close as you can. There is always at least one perfect solution with relatively common words.
 		</p>
 		<p>
 			Green squares mean you put the right letter in the right place. Yellow means the letter is in
@@ -47,6 +47,10 @@
 			Unlike Wordle, you can't use the same word twice. It's a stupid move there, but they do let
 			you do it. Here, it would be a pretty huge advantage in cases where the pattern repeats rows.
 			So you can't. Sorry.
+		</p>
+		<p>
+			Scoring is based on similarity to the target pattern. Matching the color is best, but putting
+			a green for a yellow or vice versa is half as good. Maximum score is 100%, obviously.
 		</p>
 		<h2>Who made this?</h2>
 		<p>

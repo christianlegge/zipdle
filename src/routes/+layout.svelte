@@ -10,5 +10,6 @@
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<meta name="apple-mobile-web-app-title" content="zipdle" />
 	<link rel="manifest" href="/site.webmanifest" />
+	<title>zipdle</title>
 </svelte:head>
 {@render children()}

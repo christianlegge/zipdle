@@ -88,11 +88,6 @@
 >
 <div class="ml-2 flex flex-col">
 	<span>{foundTarget}</span>
-	<div class="ml-4 flex flex-col">
-		{#each foundWords as word (word)}
-			<span>{word}</span>
-		{/each}
-	</div>
 </div>
 {#if foundWords.length === 6}
 	<button

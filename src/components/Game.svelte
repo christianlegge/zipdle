@@ -8,7 +8,7 @@
 	import End from './End.svelte';
 	import Keyboard from './Keyboard.svelte';
 
-	let { tutorialShown, date }: { tutorialShown: boolean; date: string } = $props();
+	let { date }: { date: string } = $props();
 
 	let words = $state<string[]>([]);
 	let intermediate = $state('');
@@ -86,7 +86,7 @@
 
 <svelte:document {onkeydown} {onkeyup} />
 
-{#if words.length === 6 && !tutorialShown}
+{#if words.length === 6}
 	<End
 		{words}
 		{target}
@@ -97,8 +97,8 @@
 {/if}
 <section
 	transition:fade
-	class="{words.length === 6 && endBoardShown ? 'col-span-2 mx-auto' : ''} {tutorialShown ||
-	(words.length === 6 && !endBoardShown)
+	class="{words.length === 6 && endBoardShown ? 'col-span-2 mx-auto' : ''} {words.length === 6 &&
+	!endBoardShown
 		? 'hidden'
 		: 'flex'} row-start-2 flex-col items-center md:row-start-1 md:items-end"
 >
@@ -108,16 +108,8 @@
 		{/each}
 	</div>
 </section>
-<section
-	class="{tutorialShown || words.length === 6
-		? 'hidden'
-		: 'flex'} flex-col items-center md:items-start"
->
-	<div
-		class="{tutorialShown
-			? 'hidden'
-			: 'flex'} flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8"
-	>
+<section class="{words.length === 6 ? 'hidden' : 'flex'} flex-col items-center md:items-start">
+	<div class="flex flex-row items-center gap-8 rounded md:flex-col md:bg-slate-300 md:p-8">
 		<div class="flex flex-col items-center gap-2 rounded bg-slate-500 p-4">
 			<span class="text-xs uppercase">{now.toDateString()}</span>
 			<h2 class="mt-2 text-sm">Target Word</h2>

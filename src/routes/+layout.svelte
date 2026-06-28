@@ -1,8 +1,18 @@
 <script lang="ts">
 	import './layout.css';
 	import { resolve } from '$app/paths';
+	import { fade } from 'svelte/transition';
+	import Tutorial from '../components/Tutorial.svelte';
+	import { PersistedState } from 'runed';
 
 	let { children } = $props();
+	let closedTutorial = new PersistedState('visited', false);
+	let tutorial = $state(!closedTutorial.current);
+
+	function closeTutorial() {
+		closedTutorial.current = true;
+		tutorial = false;
+	}
 </script>
 
 <svelte:head>
@@ -31,14 +41,25 @@
 	</a>
 </h1>
 <button
-	onclick={() => (manualTutorial = !manualTutorial)}
+	onclick={() => {
+		if (tutorial) {
+			closeTutorial();
+		} else {
+			tutorial = true;
+		}
+	}}
 	class="absolute top-4 right-4 cursor-pointer px-2 text-2xl font-black text-shadow-lg text-shadow-slate-900 md:top-6 md:text-5xl"
 	>?</button
 >
 <main
+	transition:fade
 	class="to-md:px-2 relative grid w-full items-center justify-center gap-y-4 md:grid-cols-2 md:gap-x-20 md:gap-y-8"
 >
-	{@render children()}
+	{#if tutorial}
+		<Tutorial close={closeTutorial} />
+	{:else}
+		{@render children()}
+	{/if}
 </main>
 
 <style>

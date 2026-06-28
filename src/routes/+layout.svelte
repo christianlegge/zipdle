@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './layout.css';
+	import { resolve } from '$app/paths';
 
 	let { children } = $props();
 </script>
@@ -21,13 +22,13 @@
 		class="h-10 md:h-20"
 		style="animation: spin 2000s linear infinite"
 	/>
-	<span class="relative flex flex-row items-center"
+	<a href={resolve('/')} class="relative flex flex-row items-center"
 		>zipdle
 		<span
 			class="absolute -right-14 rounded bg-slate-900 p-1 text-xs font-medium tracking-wider uppercase"
 			style="font-family:Manrope Variable">Beta</span
 		>
-	</span>
+	</a>
 </h1>
 <button
 	onclick={() => (manualTutorial = !manualTutorial)}

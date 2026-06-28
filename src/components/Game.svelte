@@ -5,23 +5,27 @@
 	import { type LetterColor } from '$lib/colorize';
 	import Pattern from './Pattern.svelte';
 	import { SvelteDate } from 'svelte/reactivity';
+	import upcoming from '$lib/upcoming';
 	import End from './End.svelte';
 	import Keyboard from './Keyboard.svelte';
 
-	let {
-		target,
-		targetPattern,
-		tutorialShown
-	}: { target: string; targetPattern: LetterColor[][]; tutorialShown: boolean } = $props();
+	let { tutorialShown, date }: { tutorialShown: boolean; date: string } = $props();
 
 	let words = $state<string[]>([]);
 	let intermediate = $state('');
 	let flipping = $state(false);
 	let endBoardShown = $state(false);
 
-	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
+	const START_DATE = new SvelteDate(2026, 5, 23);
 
-	const now = new SvelteDate();
+	const now = new SvelteDate(date);
+
+	const days = Math.floor((now.getTime() - START_DATE.getTime()) / (24 * 60 * 60 * 1000));
+
+	const target = $derived(upcoming[days].target);
+	const targetPattern = $derived(upcoming[days].pattern);
+
+	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
 
 	function onkeydown(event: KeyboardEvent) {
 		// processInput(event.key);

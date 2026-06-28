@@ -2,18 +2,13 @@
 	import Game from '../components/Game.svelte';
 	import Tutorial from '../components/Tutorial.svelte';
 	import { PersistedState } from 'runed';
-	import upcoming from '$lib/upcoming';
 	import { SvelteDate } from 'svelte/reactivity';
 
 	let closedTutorial = new PersistedState('visited', false);
 
 	let manualTutorial = $state(false);
 
-	const START_DATE = new SvelteDate(2026, 5, 23);
-
 	const now = new SvelteDate();
-
-	const days = Math.floor((now.getTime() - START_DATE.getTime()) / (24 * 60 * 60 * 1000));
 </script>
 
 <h1
@@ -49,11 +44,7 @@
 			}}
 		/>
 	{/if}
-	<Game
-		target={upcoming[days].target}
-		targetPattern={upcoming[days].pattern}
-		tutorialShown={!closedTutorial.current || manualTutorial}
-	/>
+	<Game tutorialShown={!closedTutorial.current || manualTutorial} date={now.toDateString()} />
 </main>
 
 <style>

@@ -11,41 +11,15 @@
 	const now = new SvelteDate();
 </script>
 
-<h1
-	class="relative my-4 flex w-full -translate-x-2 flex-row items-center justify-center gap-4 text-center text-2xl md:text-5xl"
->
-	<img
-		src="zip.webp"
-		alt="zip"
-		class="h-10 md:h-20"
-		style="animation: spin 2000s linear infinite"
+{#if !closedTutorial.current || manualTutorial}
+	<Tutorial
+		close={() => {
+			closedTutorial.current = true;
+			manualTutorial = false;
+		}}
 	/>
-	<span class="relative flex flex-row items-center"
-		>zipdle
-		<span
-			class="absolute -right-14 rounded bg-slate-900 p-1 text-xs font-medium tracking-wider uppercase"
-			style="font-family:Manrope Variable">Beta</span
-		>
-	</span>
-</h1>
-<button
-	onclick={() => (manualTutorial = !manualTutorial)}
-	class="absolute top-4 right-4 cursor-pointer px-2 text-2xl font-black text-shadow-lg text-shadow-slate-900 md:top-6 md:text-5xl"
-	>?</button
->
-<main
-	class="to-md:px-2 relative grid w-full items-center justify-center gap-y-4 md:grid-cols-2 md:gap-x-20 md:gap-y-8"
->
-	{#if !closedTutorial.current || manualTutorial}
-		<Tutorial
-			close={() => {
-				closedTutorial.current = true;
-				manualTutorial = false;
-			}}
-		/>
-	{/if}
-	<Game tutorialShown={!closedTutorial.current || manualTutorial} date={now.toDateString()} />
-</main>
+{/if}
+<Game tutorialShown={!closedTutorial.current || manualTutorial} date={now.toDateString()} />
 
 <style>
 	@keyframes -global-spin {

@@ -23,6 +23,17 @@
 	<link rel="manifest" href="/site.webmanifest" />
 	<title>zipdle</title>
 </svelte:head>
+<a
+	aria-label="Archive"
+	href={resolve('/archive')}
+	class="absolute top-6 left-6 z-10 cursor-pointer px-2 text-2xl md:top-8 md:left-8 md:scale-180 md:text-5xl"
+	><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+		><path
+			fill="#ffffff"
+			d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"
+		/></svg
+	></a
+>
 <h1
 	class="relative my-4 flex w-full -translate-x-2 flex-row items-center justify-center gap-4 text-center text-2xl md:text-5xl"
 >

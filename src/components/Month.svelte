@@ -21,6 +21,11 @@
 
 	const startDay = $derived(new Date(year, monthIndex, 1).getDay());
 
+	function isToday(day: number) {
+		const now = new Date();
+		return now.getDate() === day && now.getFullYear() === year && now.getMonth() === monthIndex;
+	}
+
 	function hasPuzzle(day: number) {
 		if (year < 2026) {
 			return false;
@@ -50,9 +55,11 @@
 			{:else}
 				<a
 					href={resolve(
-						`/${year}-${(monthIndex + 1).toString().padStart(2, '0')}-${(i + 1 - startDay)
-							.toString()
-							.padStart(2, '0')}`
+						isToday(i + 1 - startDay)
+							? '/'
+							: `/${year}-${(monthIndex + 1).toString().padStart(2, '0')}-${(i + 1 - startDay)
+									.toString()
+									.padStart(2, '0')}`
 					)}
 					class="{v ? 'bg-slate-400' : ''} p-1 text-center">{v ? i + 1 - startDay : ''}</a
 				>

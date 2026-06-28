@@ -2,7 +2,6 @@
 	import Word from './Word.svelte';
 	import { fade } from 'svelte/transition';
 	import wordList from '$lib/wordlist';
-	import { type LetterColor } from '$lib/colorize';
 	import Pattern from './Pattern.svelte';
 	import { SvelteDate } from 'svelte/reactivity';
 	import upcoming from '$lib/upcoming';
@@ -18,7 +17,7 @@
 
 	const START_DATE = new SvelteDate(2026, 5, 23);
 
-	const now = new SvelteDate(date);
+	const now = new SvelteDate(`${date} 00:00`);
 
 	const days = Math.floor((now.getTime() - START_DATE.getTime()) / (24 * 60 * 60 * 1000));
 

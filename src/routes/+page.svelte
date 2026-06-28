@@ -20,15 +20,3 @@
 	/>
 {/if}
 <Game tutorialShown={!closedTutorial.current || manualTutorial} date={now.toDateString()} />
-
-<style>
-	@keyframes -global-spin {
-		from {
-			transform: rotate(0);
-		}
-
-		to {
-			transform: rotate(360deg);
-		}
-	}
-</style>

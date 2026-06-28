@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { colorize, type LetterColor } from '$lib/colorize';
-	import { fade, slide } from 'svelte/transition';
 	import Pattern from './Pattern.svelte';
 
 	let {
@@ -66,7 +65,6 @@
 </script>
 
 <section
-	transition:slide
 	class="{boardShown
 		? 'relative'
 		: 'absolute'} inset-0 mx-auto grid h-fit w-fit grid-cols-2 items-center justify-center gap-4 rounded bg-slate-500 px-8 pt-2 pb-8 md:col-span-2"

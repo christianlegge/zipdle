@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
 	const buttons = [
 		['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
 		['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -9,7 +8,7 @@
 	let { processInput }: { processInput: (key: string) => void } = $props();
 </script>
 
-<section transition:fade class="flex w-full flex-col items-center gap-1 md:col-span-2">
+<section class="flex w-full flex-col items-center gap-1 md:col-span-2">
 	{#each buttons as row, i (i)}
 		<div class="flex h-full flex-row gap-1">
 			{#each row as button (button)}

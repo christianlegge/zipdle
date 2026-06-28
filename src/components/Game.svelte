@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Word from './Word.svelte';
-	import { fade } from 'svelte/transition';
 	import wordList from '$lib/wordlist';
 	import Pattern from './Pattern.svelte';
 	import { SvelteDate } from 'svelte/reactivity';
@@ -96,7 +95,6 @@
 	/>
 {/if}
 <section
-	transition:fade
 	class="{words.length === 6 && endBoardShown ? 'col-span-2 mx-auto' : ''} {words.length === 6 &&
 	!endBoardShown
 		? 'hidden'

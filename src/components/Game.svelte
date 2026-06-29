@@ -42,9 +42,7 @@
 	});
 
 	function persistScore(score: number) {
-		console.log('persisting score', score);
 		const persistedState = JSON.parse(localStorage.getItem('gameState') ?? '{}');
-		console.log(persistedState[date]);
 		localStorage.setItem(
 			'gameState',
 			JSON.stringify({
@@ -55,6 +53,22 @@
 				}
 			})
 		);
+	}
+
+	function resetProgress() {
+		const persistedState = JSON.parse(localStorage.getItem('gameState') ?? '{}');
+		localStorage.setItem(
+			'gameState',
+			JSON.stringify({
+				...persistedState,
+				[date]: {
+					words: [],
+					score: 0
+				}
+			})
+		);
+		gameState.words = [];
+		gameState.intermediate = '';
 	}
 
 	const START_DATE = new SvelteDate(2026, 5, 23);
@@ -139,6 +153,7 @@
 		boardShown={gameState.endBoardShown}
 		toggleBoard={() => (gameState.endBoardShown = !gameState.endBoardShown)}
 		{persistScore}
+		{resetProgress}
 	/>
 {/if}
 <section

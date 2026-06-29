@@ -8,7 +8,8 @@
 		pattern,
 		toggleBoard,
 		boardShown,
-		persistScore
+		persistScore,
+		resetProgress
 	}: {
 		words: string[];
 		target: string;
@@ -16,6 +17,7 @@
 		toggleBoard: () => void;
 		boardShown: boolean;
 		persistScore: (score: number) => void;
+		resetProgress: () => void;
 	} = $props();
 
 	const actualPattern = $derived(words.map((w) => colorize(w, target)));
@@ -97,5 +99,8 @@
 			class="{copied ? 'text-slate-500' : 'cursor-pointer text-slate-900'} rounded bg-slate-100 p-2"
 			onclick={() => copy(actualPattern, pattern)}>{copied ? 'Copied!' : 'Share'}</button
 		>
+	</div>
+	<div class="col-span-2 mt-2 w-full text-center">
+		<button class="cursor-pointer rounded bg-red-900 p-2" onclick={resetProgress}>Try again</button>
 	</div>
 </section>

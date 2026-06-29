@@ -51,7 +51,6 @@
 	}
 
 	function getBgClass(date: string) {
-		console.log(date, persistedState[date]);
 		if (!persistedState[date] || persistedState[date].words.length === 0) {
 			return 'bg-slate-500';
 		}

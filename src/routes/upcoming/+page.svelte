@@ -3,10 +3,10 @@
 	import Pattern from '../../components/Pattern.svelte';
 	import { SvelteDate } from 'svelte/reactivity';
 
-	const today = new SvelteDate();
+	const start = new SvelteDate(2026, 5, 23);
 
 	function offsetDate(days: number) {
-		const d = new SvelteDate(today);
+		const d = new SvelteDate(start);
 		d.setDate(d.getDate() + days);
 		return d;
 	}

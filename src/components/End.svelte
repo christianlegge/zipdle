@@ -23,6 +23,7 @@
 	const actualPattern = $derived(words.map((w) => colorize(w, target)));
 
 	let copied = $state(false);
+	let confirmReset = $state(false);
 
 	function similarity(actual: LetterColor[][], target: LetterColor[][]) {
 		let score = 0;
@@ -101,6 +102,10 @@
 		>
 	</div>
 	<div class="col-span-2 mt-2 w-full text-center">
-		<button class="cursor-pointer rounded bg-red-900 p-2" onclick={resetProgress}>Try again</button>
+		<button
+			class="cursor-pointer rounded bg-red-900 p-2"
+			onclick={confirmReset ? resetProgress : () => (confirmReset = true)}
+			>{confirmReset ? 'Really try again?' : 'Try again'}</button
+		>
 	</div>
 </section>

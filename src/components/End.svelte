@@ -7,13 +7,15 @@
 		target,
 		pattern,
 		toggleBoard,
-		boardShown
+		boardShown,
+		persistScore
 	}: {
 		words: string[];
 		target: string;
 		pattern: LetterColor[][];
 		toggleBoard: () => void;
 		boardShown: boolean;
+		persistScore: (score: number) => void;
 	} = $props();
 
 	const actualPattern = $derived(words.map((w) => colorize(w, target)));
@@ -31,6 +33,7 @@
 				}
 			}
 		}
+		persistScore(score / 30);
 		return score / 30;
 	}
 

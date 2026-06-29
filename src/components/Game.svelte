@@ -8,9 +8,54 @@
 	import Keyboard from './Keyboard.svelte';
 	import { gameState, resetState } from '$lib/gameState.svelte';
 
-	resetState();
-
 	let { date }: { date: string } = $props();
+
+	resetState();
+	const persistedState = JSON.parse(localStorage.getItem('gameState') ?? '{}');
+	if (!persistedState[date]) {
+		localStorage.setItem(
+			'gameState',
+			JSON.stringify({
+				...persistedState,
+				[date]: {
+					words: gameState.words,
+					score: 0
+				}
+			})
+		);
+	} else {
+		gameState.words = persistedState[date].words;
+	}
+
+	$effect(() => {
+		const persistedState = JSON.parse(localStorage.getItem('gameState') ?? '{}');
+		localStorage.setItem(
+			'gameState',
+			JSON.stringify({
+				...persistedState,
+				[date]: {
+					words: gameState.words,
+					score: persistedState[date].score
+				}
+			})
+		);
+	});
+
+	function persistScore(score: number) {
+		console.log('persisting score', score);
+		const persistedState = JSON.parse(localStorage.getItem('gameState') ?? '{}');
+		console.log(persistedState[date]);
+		localStorage.setItem(
+			'gameState',
+			JSON.stringify({
+				...persistedState,
+				[date]: {
+					words: gameState.words,
+					score
+				}
+			})
+		);
+	}
 
 	const START_DATE = new SvelteDate(2026, 5, 23);
 
@@ -93,6 +138,7 @@
 		pattern={targetPattern}
 		boardShown={gameState.endBoardShown}
 		toggleBoard={() => (gameState.endBoardShown = !gameState.endBoardShown)}
+		{persistScore}
 	/>
 {/if}
 <section

@@ -103,17 +103,6 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 	},
 	{
 		pattern: [
-			['yellow', 'yellow', 'black', 'yellow', 'yellow'],
-			['yellow', 'black', 'black', 'black', 'yellow'],
-			['black', 'green', 'black', 'green', 'black'],
-			['black', 'yellow', 'black', 'yellow', 'black'],
-			['green', 'black', 'black', 'black', 'green'],
-			['green', 'green', 'black', 'green', 'green']
-		],
-		target: 'champ'
-	},
-	{
-		pattern: [
 			['black', 'green', 'yellow', 'green', 'black'],
 			['black', 'green', 'green', 'green', 'black'],
 			['black', 'green', 'yellow', 'green', 'black'],
@@ -133,6 +122,17 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 			['black', 'yellow', 'yellow', 'yellow', 'black']
 		],
 		target: 'bloat'
+	},
+	{
+		pattern: [
+			['yellow', 'green', 'yellow', 'black', 'black'],
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['black', 'black', 'yellow', 'green', 'yellow'],
+			['black', 'black', 'yellow', 'green', 'yellow'],
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['yellow', 'green', 'yellow', 'black', 'black']
+		],
+		target: 'board'
 	},
 	{
 		pattern: [
@@ -180,28 +180,6 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 	},
 	{
 		pattern: [
-			['green', 'yellow', 'black', 'black', 'black'],
-			['black', 'green', 'yellow', 'black', 'black'],
-			['black', 'black', 'green', 'yellow', 'black'],
-			['black', 'black', 'green', 'yellow', 'black'],
-			['black', 'green', 'yellow', 'black', 'black'],
-			['green', 'yellow', 'black', 'black', 'black']
-		],
-		target: 'mouse'
-	},
-	{
-		pattern: [
-			['black', 'yellow', 'green', 'black', 'black'],
-			['black', 'black', 'yellow', 'green', 'black'],
-			['black', 'black', 'black', 'yellow', 'green'],
-			['black', 'black', 'black', 'yellow', 'green'],
-			['black', 'black', 'yellow', 'green', 'black'],
-			['black', 'yellow', 'green', 'black', 'black']
-		],
-		target: 'covey'
-	},
-	{
-		pattern: [
 			['yellow', 'green', 'black', 'black', 'black'],
 			['black', 'yellow', 'green', 'black', 'black'],
 			['black', 'black', 'yellow', 'green', 'black'],
@@ -210,17 +188,6 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 			['yellow', 'green', 'black', 'black', 'black']
 		],
 		target: 'cider'
-	},
-	{
-		pattern: [
-			['yellow', 'green', 'yellow', 'black', 'black'],
-			['black', 'yellow', 'green', 'yellow', 'black'],
-			['black', 'black', 'yellow', 'green', 'yellow'],
-			['black', 'black', 'yellow', 'green', 'yellow'],
-			['black', 'yellow', 'green', 'yellow', 'black'],
-			['yellow', 'green', 'yellow', 'black', 'black']
-		],
-		target: 'board'
 	},
 	{
 		pattern: [
@@ -279,6 +246,17 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 	},
 	{
 		pattern: [
+			['black', 'yellow', 'green', 'black', 'black'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'black', 'black', 'yellow', 'green'],
+			['black', 'black', 'black', 'yellow', 'green'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'yellow', 'green', 'black', 'black']
+		],
+		target: 'covey'
+	},
+	{
+		pattern: [
 			['black', 'black', 'green', 'black', 'black'],
 			['green', 'black', 'yellow', 'black', 'green'],
 			['black', 'green', 'yellow', 'green', 'black'],
@@ -320,6 +298,28 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 			['black', 'yellow', 'black', 'yellow', 'black']
 		],
 		target: 'route'
+	},
+	{
+		pattern: [
+			['yellow', 'yellow', 'black', 'yellow', 'yellow'],
+			['yellow', 'black', 'black', 'black', 'yellow'],
+			['black', 'green', 'black', 'green', 'black'],
+			['black', 'yellow', 'black', 'yellow', 'black'],
+			['green', 'black', 'black', 'black', 'green'],
+			['green', 'green', 'black', 'green', 'green']
+		],
+		target: 'champ'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'black', 'black', 'black'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['black', 'black', 'green', 'yellow', 'black'],
+			['black', 'black', 'green', 'yellow', 'black'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black']
+		],
+		target: 'mouse'
 	}
 ];
 

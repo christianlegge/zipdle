@@ -37,7 +37,7 @@
 	style:color={flipped ? 'white' : 'black'}
 	style:background-color={flipped ? colors[color] : colors.white}
 	style:transition-duration={`${duration / 2}ms`}
-	style:scale={`${scaleX} ${scale}`}
+	style:scale={scaleX === 1 && scale === 1 ? 'none' : `${scaleX} ${scale}`}
 >
 	{letter}
 </div>
@@ -45,7 +45,7 @@
 <style>
 	.glow {
 		position: relative;
-		transform-style: preserve-3d;
+		z-index: auto;
 	}
 
 	.glow:before {
@@ -56,7 +56,6 @@
 		left: 0;
 		right: 0;
 		position: absolute;
-		transform: translateZ(-90px);
 		z-index: -999;
 	}
 

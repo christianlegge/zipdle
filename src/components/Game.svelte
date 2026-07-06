@@ -141,6 +141,21 @@
 			...(gameState.words.length < 5 ? Array(5 - gameState.words.length).fill('') : [])
 		].slice(0, 6)
 	);
+
+	let boardClass = $derived(() => {
+		let c = 'flex md:gap-2 gap-0.5 flex-col items-center transition-all';
+		if (gameState.endBoardShown) {
+			c += ' h-62 md:h-80';
+		} else if (gameState.words.length === 6) {
+			c += ' h-0 overflow-y-hidden';
+		}
+		if (gameState.words.length === 6) {
+			c += ' -z-10 md:col-span-2 row-start-1 mx-auto';
+		} else {
+			c += ' row-start-2 md:row-start-1 md:items-end';
+		}
+		return c;
+	});
 </script>
 
 <svelte:document {onkeydown} {onkeyup} />
@@ -156,24 +171,16 @@
 		{resetProgress}
 	/>
 {/if}
-<section
-	class="{gameState.words.length === 6 && gameState.endBoardShown
-		? 'col-span-2 mx-auto'
-		: ''} {gameState.words.length === 6 && !gameState.endBoardShown
-		? 'hidden'
-		: 'flex'} row-start-2 flex-col items-center md:row-start-1 md:items-end"
->
-	<div class="flex flex-col md:gap-2">
-		{#each displaywords as word, i (i)}
-			<Word
-				bind:this={wordbinds[i]}
-				{word}
-				{target}
-				targetPattern={targetPattern[i]}
-				preflip={i < gameState.words.length}
-			/>
-		{/each}
-	</div>
+<section class={boardClass()}>
+	{#each displaywords as word, i (i)}
+		<Word
+			bind:this={wordbinds[i]}
+			{word}
+			{target}
+			targetPattern={targetPattern[i]}
+			preflip={i < gameState.words.length}
+		/>
+	{/each}
 </section>
 <section
 	class="{gameState.words.length === 6 ? 'hidden' : 'flex'} flex-col items-center md:items-start"

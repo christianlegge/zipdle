@@ -71,9 +71,7 @@
 </script>
 
 <section
-	class="{boardShown
-		? 'relative'
-		: 'absolute'} inset-0 mx-auto grid h-fit w-fit grid-cols-2 items-center justify-center gap-4 rounded bg-slate-500 px-8 pt-2 pb-8 md:col-span-2"
+	class="mx-auto grid h-fit w-fit grid-cols-2 items-center justify-center gap-4 rounded bg-slate-500 px-8 pt-2 pb-8 md:col-span-2"
 >
 	<button
 		class="col-span-2 inline-block w-full cursor-pointer rounded bg-slate-600 py-1 text-center text-xs uppercase"

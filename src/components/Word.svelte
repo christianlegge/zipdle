@@ -35,7 +35,7 @@
 	}
 </script>
 
-<div class="flex flex-row md:gap-2" style={`translate: 0px ${offset.current}px`}>
+<div class="flex flex-row gap-0.5 md:gap-2" style={`translate: 0px ${offset.current}px`}>
 	{#each zipped as [letter, color], i (i)}
 		<Letter
 			bind:this={letterbinds[i]}

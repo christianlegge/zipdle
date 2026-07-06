@@ -40,12 +40,14 @@
 	style:translate={offset.current !== 0 ? `0px ${offset.current}px` : 'none'}
 >
 	{#each zipped as [letter, color], i (i)}
-		<Letter
-			bind:this={letterbinds[i]}
-			{letter}
-			{color}
-			glow={color === targetPattern[i]}
-			{preflip}
-		/>
+		{#key letter}
+			<Letter
+				bind:this={letterbinds[i]}
+				{letter}
+				{color}
+				glow={color === targetPattern[i]}
+				{preflip}
+			/>
+		{/key}
 	{/each}
 </div>

@@ -320,6 +320,281 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 			['green', 'yellow', 'black', 'black', 'black']
 		],
 		target: 'mouse'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'black', 'green'],
+			['black', 'black', 'black', 'green', 'black'],
+			['black', 'black', 'green', 'black', 'black'],
+			['yellow', 'green', 'yellow', 'yellow', 'yellow'],
+			['green', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow']
+		],
+		target: 'terse'
+	},
+	{
+		pattern: [
+			['black', 'black', 'yellow', 'black', 'black'],
+			['black', 'green', 'black', 'green', 'black'],
+			['green', 'black', 'yellow', 'black', 'green'],
+			['yellow', 'black', 'green', 'black', 'yellow'],
+			['black', 'yellow', 'black', 'yellow', 'black'],
+			['black', 'black', 'green', 'black', 'black']
+		],
+		target: 'panes'
+	},
+	{
+		pattern: [
+			['yellow', 'green', 'black', 'black', 'black'],
+			['black', 'yellow', 'green', 'black', 'black'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'black', 'green', 'yellow', 'black'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black']
+		],
+		target: 'burly'
+	},
+	{
+		pattern: [
+			['black', 'yellow', 'black', 'green', 'green'],
+			['black', 'black', 'yellow', 'black', 'black'],
+			['green', 'green', 'black', 'yellow', 'black'],
+			['yellow', 'yellow', 'black', 'green', 'black'],
+			['black', 'black', 'green', 'black', 'black'],
+			['black', 'green', 'black', 'yellow', 'yellow']
+		],
+		target: 'pries'
+	},
+	{
+		pattern: [
+			['black', 'green', 'black', 'yellow', 'black'],
+			['black', 'yellow', 'black', 'green', 'black'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['black', 'green', 'black', 'yellow', 'black'],
+			['black', 'yellow', 'black', 'green', 'black']
+		],
+		target: 'weird'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'black', 'green'],
+			['black', 'black', 'black', 'green', 'green'],
+			['black', 'green', 'green', 'green', 'black'],
+			['black', 'yellow', 'yellow', 'yellow', 'black'],
+			['yellow', 'yellow', 'black', 'black', 'black'],
+			['yellow', 'black', 'black', 'black', 'black']
+		],
+		target: 'plain'
+	},
+	{
+		pattern: [
+			['yellow', 'black', 'green', 'black', 'black'],
+			['black', 'yellow', 'green', 'black', 'black'],
+			['black', 'black', 'green', 'yellow', 'black'],
+			['black', 'black', 'green', 'black', 'yellow'],
+			['yellow', 'yellow', 'green', 'black', 'black'],
+			['black', 'black', 'green', 'yellow', 'yellow']
+		],
+		target: 'ferry'
+	},
+	{
+		pattern: [
+			['yellow', 'green', 'black', 'black', 'black'],
+			['yellow', 'green', 'yellow', 'black', 'black'],
+			['black', 'green', 'yellow', 'yellow', 'black'],
+			['black', 'green', 'black', 'yellow', 'yellow'],
+			['black', 'green', 'black', 'black', 'black'],
+			['yellow', 'green', 'yellow', 'yellow', 'yellow']
+		],
+		target: 'learn'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'black', 'black', 'black'],
+			['green', 'black', 'yellow', 'black', 'black'],
+			['green', 'yellow', 'yellow', 'black', 'black'],
+			['green', 'black', 'black', 'yellow', 'black'],
+			['green', 'black', 'yellow', 'yellow', 'black'],
+			['green', 'black', 'black', 'black', 'yellow']
+		],
+		target: 'adopt'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'yellow', 'green'],
+			['black', 'black', 'yellow', 'yellow', 'green'],
+			['black', 'yellow', 'black', 'black', 'green'],
+			['yellow', 'yellow', 'black', 'black', 'green'],
+			['black', 'black', 'black', 'black', 'green'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'green']
+		],
+		target: 'mates'
+	},
+	{
+		pattern: [
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['green', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['yellow', 'green', 'yellow', 'yellow', 'yellow'],
+			['black', 'black', 'green', 'black', 'black'],
+			['black', 'black', 'black', 'green', 'black'],
+			['black', 'black', 'black', 'black', 'green']
+		],
+		target: 'lapse'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'yellow', 'green'],
+			['black', 'black', 'black', 'green', 'yellow'],
+			['yellow', 'yellow', 'yellow', 'black', 'black'],
+			['black', 'black', 'yellow', 'yellow', 'yellow'],
+			['yellow', 'green', 'black', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black']
+		],
+		target: 'joint'
+	},
+	{
+		pattern: [
+			['black', 'green', 'yellow', 'black', 'yellow'],
+			['green', 'yellow', 'black', 'black', 'yellow'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['black', 'green', 'yellow', 'black', 'green'],
+			['green', 'yellow', 'black', 'black', 'green']
+		],
+		target: 'parks'
+	},
+	{
+		pattern: [
+			['black', 'black', 'yellow', 'black', 'black'],
+			['black', 'green', 'black', 'yellow', 'black'],
+			['black', 'yellow', 'black', 'green', 'black'],
+			['green', 'black', 'black', 'black', 'yellow'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['yellow', 'black', 'black', 'black', 'green']
+		],
+		target: 'tomes'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'yellow', 'black', 'black'],
+			['green', 'black', 'black', 'yellow', 'black'],
+			['green', 'green', 'yellow', 'black', 'black'],
+			['green', 'black', 'black', 'yellow', 'black'],
+			['green', 'black', 'black', 'green', 'black'],
+			['green', 'yellow', 'green', 'black', 'black']
+		],
+		target: 'baton'
+	},
+	{
+		pattern: [
+			['black', 'green', 'yellow', 'yellow', 'black'],
+			['green', 'yellow', 'black', 'black', 'yellow'],
+			['yellow', 'green', 'black', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['yellow', 'green', 'black', 'black', 'yellow'],
+			['black', 'yellow', 'green', 'yellow', 'black']
+		],
+		target: 'curio'
+	},
+	{
+		pattern: [
+			['black', 'green', 'yellow', 'black', 'black'],
+			['black', 'green', 'black', 'yellow', 'black'],
+			['black', 'green', 'black', 'black', 'yellow'],
+			['black', 'yellow', 'black', 'black', 'green'],
+			['black', 'yellow', 'black', 'green', 'black'],
+			['black', 'yellow', 'green', 'black', 'black']
+		],
+		target: 'split'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['yellow', 'yellow', 'black', 'black', 'black'],
+			['green', 'yellow', 'yellow', 'yellow', 'black'],
+			['yellow', 'green', 'black', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['yellow', 'green', 'yellow', 'yellow', 'yellow']
+		],
+		target: 'sonic'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['yellow', 'green', 'black', 'black', 'black'],
+			['green', 'yellow', 'yellow', 'yellow', 'black'],
+			['yellow', 'yellow', 'black', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['green', 'green', 'black', 'black', 'black']
+		],
+		target: 'gazer'
+	},
+	{
+		pattern: [
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['yellow', 'green', 'black', 'black', 'yellow'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['yellow', 'green', 'black', 'yellow', 'yellow'],
+			['green', 'yellow', 'black', 'yellow', 'yellow'],
+			['black', 'green', 'yellow', 'yellow', 'black']
+		],
+		target: 'leans'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'black', 'black', 'yellow'],
+			['yellow', 'green', 'black', 'black', 'yellow'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['green', 'yellow', 'black', 'black', 'green'],
+			['yellow', 'green', 'black', 'black', 'green'],
+			['yellow', 'yellow', 'black', 'black', 'green']
+		],
+		target: 'slope'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['black', 'yellow', 'green', 'black', 'black'],
+			['black', 'yellow', 'yellow', 'black', 'black'],
+			['black', 'green', 'green', 'black', 'black'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'green']
+		],
+		target: 'means'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['black', 'black', 'yellow', 'yellow', 'black'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'black', 'green', 'yellow', 'black'],
+			['green', 'black', 'yellow', 'yellow', 'black'],
+			['black', 'green', 'yellow', 'yellow', 'black']
+		],
+		target: 'paler'
+	},
+	{
+		pattern: [
+			['green', 'yellow', 'black', 'black', 'green'],
+			['yellow', 'green', 'black', 'green', 'black'],
+			['yellow', 'yellow', 'green', 'black', 'black'],
+			['green', 'yellow', 'black', 'yellow', 'black'],
+			['yellow', 'green', 'black', 'black', 'yellow'],
+			['yellow', 'yellow', 'black', 'black', 'yellow']
+		],
+		target: 'solid'
+	},
+	{
+		pattern: [
+			['green', 'green', 'black', 'black', 'black'],
+			['yellow', 'yellow', 'black', 'black', 'black'],
+			['yellow', 'green', 'black', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'green'],
+			['green', 'yellow', 'yellow', 'yellow', 'green']
+		],
+		target: 'meaty'
 	}
 ];
 

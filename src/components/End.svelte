@@ -60,9 +60,7 @@
 	function copy(actual: LetterColor[][], target: LetterColor[][]) {
 		const score = (similarity(actual, target) * 100).toFixed(2);
 		navigator.clipboard
-			.writeText(
-				`I scored ${score}% on zipdle!\n${emoji(actual, target)}\nhttps://zipdle.christianlegge.dev`
-			)
+			.writeText(`I scored ${score}% on zipdle!\n${emoji(actual, target)}`)
 			.then(() => {
 				copied = true;
 				setTimeout(() => (copied = false), 3000);

@@ -22,6 +22,19 @@
 	<meta name="apple-mobile-web-app-title" content="zipdle" />
 	<link rel="manifest" href="/site.webmanifest" />
 	<title>zipdle</title>
+	<meta name="description" content="A pattern-matching word game" />
+	<meta itemprop="name" content="zipdle" />
+	<meta itemprop="description" content="A pattern-matching word game" />
+	<meta itemprop="image" content="https://zipdle.christianlegge.dev/zip.webp" />
+	<meta property="og:url" content="https://zipdle.christianlegge.dev/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="zipdle" />
+	<meta property="og:description" content="A pattern-matching word game" />
+	<meta property="og:image" content="https://zipdle.christianlegge.dev/zip.webp" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="zipdle" />
+	<meta name="twitter:description" content="A pattern-matching word game" />
+	<meta name="twitter:image" content="https://zipdle.christianlegge.dev/zip.webp" />
 </svelte:head>
 <a
 	aria-label="Archive"

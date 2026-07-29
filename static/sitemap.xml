@@ -8,9 +8,9 @@
 	xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
 >
 	<url>
-		<loc>https://zipdle.christianlegge.dev</loc>
+		<loc>https://zipdle.com</loc>
 	</url>
 	<url>
-		<loc>https://zipdle.christianlegge.dev/archive</loc>
+		<loc>https://zipdle.com/archive</loc>
 	</url>
 </urlset>

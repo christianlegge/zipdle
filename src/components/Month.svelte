@@ -70,7 +70,7 @@
 		{#each days as day (day)}
 			<span class="text-center">{day}</span>
 		{/each}
-		{#each [...new Array(startDay).fill(null), ...new Array(30).fill(true)] as v, i (i)}
+		{#each [...new Array(startDay).fill(null), ...new Array(new Date(year, monthIndex + 1, 0).getDate()).fill(true)] as v, i (i)}
 			{#if v && !hasPuzzle(i + 1 - startDay)}
 				<div class="bg-slate-700 p-1 text-center text-slate-500">{v ? i + 1 - startDay : ''}</div>
 			{:else}

@@ -21,7 +21,7 @@
 
 	const startDay = $derived(new Date(year, monthIndex, 1).getDay());
 
-	const persistedState = JSON.parse(localStorage.getItem('gameState') ?? {});
+	const persistedState = JSON.parse(localStorage.getItem('gameState') ?? '{}');
 
 	function isToday(day: number) {
 		const now = new Date();

@@ -3,10 +3,10 @@
 	import wordList from '$lib/wordlist';
 	import Pattern from './Pattern.svelte';
 	import { SvelteDate } from 'svelte/reactivity';
-	import upcoming from '$lib/upcoming';
 	import End from './End.svelte';
 	import Keyboard from './Keyboard.svelte';
 	import { gameState, resetState } from '$lib/gameState.svelte';
+	import getGameForDate from '$lib/getGameForDate';
 
 	let { date }: { date: string } = $props();
 
@@ -71,14 +71,9 @@
 		gameState.intermediate = '';
 	}
 
-	const START_DATE = new SvelteDate(2026, 5, 23);
-
 	const now = $derived(new SvelteDate(`${date} 00:00`));
 
-	const days = $derived(Math.floor((now.getTime() - START_DATE.getTime()) / (24 * 60 * 60 * 1000)));
-
-	const target = $derived(upcoming[days].target);
-	const targetPattern = $derived(upcoming[days].pattern);
+	const { target, targetPattern } = $derived(getGameForDate(date));
 
 	let wordbinds = $state<ReturnType<typeof Word>[]>([]);
 

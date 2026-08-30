@@ -1,13 +1,14 @@
 import { colorize, type LetterColor } from './colorize';
 import targetList from './targetList';
+import Rand from 'rand-seed';
 
-function shuffle(array: unknown[]) {
+function shuffle(array: unknown[], rng: Rand) {
 	let currentIndex = array.length;
 
 	// While there remain elements to shuffle...
 	while (currentIndex != 0) {
 		// Pick a remaining element...
-		const randomIndex = Math.floor(Math.random() * currentIndex);
+		const randomIndex = Math.floor(rng.next() * currentIndex);
 		currentIndex--;
 
 		// And swap it with the current element.
@@ -35,11 +36,12 @@ export function arraysEqual<T>(a: T[], b: T[]) {
 	return true;
 }
 
-function findTargetWord(pattern: LetterColor[][]) {
-	shuffle(targetList);
-	for (const target of targetList) {
+function findTargetWord(pattern: LetterColor[][], seed?: string) {
+	const rand = new Rand(seed);
+	const shuffledList = [...targetList];
+	shuffle(shuffledList, rand);
+	for (const target of shuffledList) {
 		const words: string[] = [];
-		console.log('trying', target);
 
 		let rowSuccess = true;
 		for (const row of pattern) {

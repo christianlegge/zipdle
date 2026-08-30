@@ -749,6 +749,160 @@ const upcoming: { pattern: LetterColor[][]; target: string }[] = [
 			['green', 'yellow', 'yellow', 'yellow', 'yellow']
 		],
 		target: 'parse'
+	},
+	{
+		pattern: [
+			['green', 'black', 'black', 'yellow', 'black'],
+			['black', 'yellow', 'black', 'black', 'yellow'],
+			['black', 'black', 'yellow', 'black', 'black'],
+			['black', 'black', 'yellow', 'black', 'black'],
+			['yellow', 'black', 'black', 'yellow', 'black'],
+			['black', 'yellow', 'black', 'black', 'green']
+		],
+		target: 'gravy'
+	},
+	{
+		pattern: [
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'yellow', 'green', 'black', 'black'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['black', 'black', 'green', 'yellow', 'black'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'yellow', 'green', 'black', 'black']
+		],
+		target: 'canto'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'black', 'green'],
+			['black', 'black', 'black', 'green', 'yellow'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['yellow', 'black', 'black', 'black', 'black']
+		],
+		target: 'upset'
+	},
+	{
+		pattern: [
+			['yellow', 'black', 'green', 'black', 'black'],
+			['black', 'yellow', 'yellow', 'black', 'black'],
+			['black', 'green', 'black', 'green', 'black'],
+			['black', 'black', 'yellow', 'black', 'black'],
+			['black', 'black', 'black', 'yellow', 'yellow'],
+			['black', 'black', 'green', 'black', 'black']
+		],
+		target: 'threw'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'yellow', 'yellow'],
+			['green', 'green', 'black', 'yellow', 'black'],
+			['black', 'green', 'black', 'yellow', 'black'],
+			['black', 'green', 'black', 'yellow', 'black'],
+			['green', 'green', 'black', 'yellow', 'black'],
+			['black', 'black', 'black', 'yellow', 'yellow']
+		],
+		target: 'chant'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'green', 'yellow'],
+			['black', 'black', 'black', 'green', 'black'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'yellow', 'black', 'yellow', 'black'],
+			['yellow', 'black', 'yellow', 'black', 'yellow'],
+			['yellow', 'black', 'yellow', 'black', 'yellow']
+		],
+		target: 'stoke'
+	},
+	{
+		pattern: [
+			['green', 'black', 'black', 'black', 'black'],
+			['green', 'yellow', 'black', 'black', 'black'],
+			['black', 'yellow', 'green', 'black', 'black'],
+			['black', 'black', 'green', 'yellow', 'black'],
+			['black', 'black', 'black', 'yellow', 'green'],
+			['black', 'black', 'black', 'black', 'green']
+		],
+		target: 'farce'
+	},
+	{
+		pattern: [
+			['black', 'black', 'yellow', 'black', 'black'],
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['yellow', 'green', 'black', 'green', 'yellow'],
+			['yellow', 'green', 'black', 'green', 'yellow'],
+			['black', 'yellow', 'green', 'yellow', 'black'],
+			['black', 'black', 'yellow', 'black', 'black']
+		],
+		target: 'rites'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'black', 'yellow'],
+			['black', 'black', 'black', 'green', 'yellow'],
+			['black', 'black', 'yellow', 'green', 'black'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['yellow', 'green', 'black', 'black', 'black'],
+			['yellow', 'black', 'black', 'black', 'black']
+		],
+		target: 'album'
+	},
+	{
+		pattern: [
+			['black', 'black', 'black', 'black', 'green'],
+			['yellow', 'black', 'black', 'green', 'black'],
+			['black', 'yellow', 'green', 'black', 'black'],
+			['black', 'green', 'yellow', 'black', 'black'],
+			['green', 'black', 'black', 'yellow', 'black'],
+			['black', 'black', 'black', 'black', 'yellow']
+		],
+		target: 'stash'
+	},
+	{
+		pattern: [
+			['black', 'black', 'green', 'black', 'black'],
+			['black', 'black', 'green', 'black', 'black'],
+			['black', 'black', 'green', 'yellow', 'yellow'],
+			['yellow', 'yellow', 'green', 'black', 'black'],
+			['black', 'black', 'green', 'black', 'black'],
+			['black', 'black', 'green', 'black', 'black']
+		],
+		target: 'endow'
+	},
+	{
+		pattern: [
+			['black', 'yellow', 'yellow', 'black', 'yellow'],
+			['green', 'black', 'black', 'green', 'black'],
+			['black', 'yellow', 'yellow', 'black', 'black'],
+			['black', 'green', 'green', 'black', 'black'],
+			['yellow', 'black', 'black', 'yellow', 'black'],
+			['black', 'yellow', 'yellow', 'black', 'green']
+		],
+		target: 'fumed'
+	},
+	{
+		pattern: [
+			['yellow', 'black', 'black', 'black', 'green'],
+			['black', 'yellow', 'black', 'black', 'green'],
+			['black', 'black', 'yellow', 'black', 'green'],
+			['black', 'yellow', 'black', 'black', 'green'],
+			['black', 'black', 'yellow', 'black', 'green'],
+			['black', 'black', 'black', 'yellow', 'green']
+		],
+		target: 'loons'
+	},
+	{
+		pattern: [
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+			['yellow', 'black', 'green', 'black', 'yellow'],
+			['yellow', 'black', 'green', 'black', 'yellow'],
+			['yellow', 'black', 'green', 'black', 'yellow'],
+			['yellow', 'black', 'green', 'black', 'yellow'],
+			['yellow', 'yellow', 'yellow', 'yellow', 'yellow']
+		],
+		target: 'space'
 	}
 ];
 

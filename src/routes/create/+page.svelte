@@ -5,14 +5,15 @@
 
 	let paintingColor = $state<LetterColor>('green');
 	let painting = $state(false);
-	let pattern = $state<LetterColor[][]>([
+	const allBlack: LetterColor[][] = [
 		['black', 'black', 'black', 'black', 'black'],
 		['black', 'black', 'black', 'black', 'black'],
 		['black', 'black', 'black', 'black', 'black'],
 		['black', 'black', 'black', 'black', 'black'],
 		['black', 'black', 'black', 'black', 'black'],
 		['black', 'black', 'black', 'black', 'black']
-	]);
+	];
+	let pattern = $state<LetterColor[][]>(allBlack);
 	let foundWords = $state<string[]>([]);
 	let foundTarget = $state('');
 
@@ -73,44 +74,62 @@
 		</button>
 	{/each}
 </div>
-<button
-	class="my-4 cursor-pointer rounded bg-slate-200 p-4 text-black"
-	onclick={() => {
-		try {
-			const { words, target } = findTargetWord(pattern);
-			foundWords = words;
-			foundTarget = target;
-		} catch (e: unknown) {
-			foundTarget = e;
-			foundWords = [];
-		}
-	}}>Find target</button
->
-<div class="ml-2 flex flex-col">
-	<span>{foundTarget}</span>
-</div>
-{#if foundWords.length === 6}
+<div class="flex flex-col">
 	<button
 		class="my-4 cursor-pointer rounded bg-slate-200 p-4 text-black"
 		onclick={() => {
-			savedWords.current.push({ pattern, target: foundTarget });
-		}}>Save</button
+			pattern = allBlack;
+		}}
 	>
-{/if}
+		Clear current
+	</button>
+	<button
+		class="my-4 cursor-pointer rounded bg-slate-200 p-4 text-black"
+		onclick={() => {
+			try {
+				const { words, target } = findTargetWord(pattern);
+				foundWords = words;
+				foundTarget = target;
+			} catch (e: unknown) {
+				foundTarget = e;
+				foundWords = [];
+			}
+		}}>Find target</button
+	>
+	<div class="ml-2 flex flex-col">
+		<span>{foundTarget}</span>
+	</div>
+	{#if foundWords.length === 6}
+		<button
+			class="my-4 cursor-pointer rounded bg-slate-200 p-4 text-black"
+			onclick={() => {
+				savedWords.current.push({ pattern, target: foundTarget });
+			}}>Save</button
+		>
+	{/if}
 
-<span class="block">Saved: {savedWords.current.length}</span>
-<button
-	class="my-4 cursor-pointer rounded bg-slate-200 p-4 text-black"
-	onclick={() => {
-		const text = JSON.stringify(savedWords.current);
-		const filename = 'savedPatterns.json';
-		const element = document.createElement('a');
-		const blob = new Blob([text], { type: 'application/json' });
-		const url = URL.createObjectURL(blob);
-		element.setAttribute('href', url);
-		element.setAttribute('download', filename);
+	<span class="block">Saved: {savedWords.current.length}</span>
+	<button
+		class="my-4 cursor-pointer rounded bg-slate-200 p-4 text-black"
+		onclick={() => {
+			const text = JSON.stringify(savedWords.current);
+			const filename = 'savedPatterns.json';
+			const element = document.createElement('a');
+			const blob = new Blob([text], { type: 'application/json' });
+			const url = URL.createObjectURL(blob);
+			element.setAttribute('href', url);
+			element.setAttribute('download', filename);
 
-		element.click();
-	}}
-	>Export saved
-</button>
+			element.click();
+		}}
+		>Export saved
+	</button>
+	<button
+		class="my-4 cursor-pointer rounded bg-slate-200 p-4 text-black"
+		onclick={() => {
+			savedWords.current = [];
+		}}
+	>
+		Clear saved
+	</button>
+</div>
